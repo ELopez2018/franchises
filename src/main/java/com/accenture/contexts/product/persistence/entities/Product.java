@@ -1,9 +1,12 @@
 package com.accenture.contexts.product.persistence.entities;
 
 import com.accenture.contexts.branch.persistence.entities.Branch;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import lombok.Data;
 
-
+@Data
+@Entity
 @Table(name = "product")
 public class Product {
   @Id
@@ -18,5 +21,6 @@ public class Product {
 
   @ManyToOne
   @JoinColumn(name = "branch_id")
+  @JsonBackReference
   private Branch branch;
 }

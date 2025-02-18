@@ -1,6 +1,7 @@
 package com.accenture.contexts.franchises.persistence.entities;
 
 import com.accenture.contexts.branch.persistence.entities.Branch;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,5 +21,6 @@ public class Franchise {
   private String name;
 
   @OneToMany(mappedBy = "franchise", cascade = CascadeType.ALL, orphanRemoval = true)
+  @JsonManagedReference
   private List<Branch> branches;
 }
